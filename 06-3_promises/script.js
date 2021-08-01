@@ -1,11 +1,11 @@
-console.log("=== Working with promises ===");
+console.log("=== Working with 06-3_promises ===");
 const ninjaPromise = new Promise((resolve, reject) => {
     resolve("Hattori");
     // reject("An error resolving a promise!")
 });
 
 ninjaPromise.then(ninja => {
-    console.log(ninja === "Hattori", "We were promises Hattori.");
+    console.log(ninja === "Hattori", "We were 06-3_promises Hattori.");
 }, err => {
     fail("There shouldn`t be an error.");
 });
@@ -47,7 +47,7 @@ ninjaDelayedPromise executor.
 true After creating ninjaDelayedPromise.
 ninjaImmediatePromise executor. Immediate resolve.
 At code end.
-true We were promises Hattori.
+true We were 06-3_promises Hattori.
 false ninjaImmediatePromise resolve handle with Yoshi.
 Resolving ninjaDelayedPromise
 true ninjaDelayedPromise resolve handle with Hattori

@@ -39,7 +39,7 @@ console.log("=== Створення нового об'єкта за допомо
 function Ninja() {
 }
 
-Ninja.prototype.swingSword = function () {
+Ninja.07_prototype.swingSword = function () {
     return true;
 }
 const ninja1 = Ninja();
@@ -59,13 +59,13 @@ function Ninja() {
         return !this.swung;
     };
 }
-Ninja.prototype.swingSword = function() {
+Ninja.07_prototype.swingSword = function() {
     return this.swung;
 };
 
 const ninja = new Ninja();
-console.log(ninja.swingSword(), "Called the instance method, not the prototype method.");
-// true Called the instance method, not the prototype method.
+console.log(ninja.swingSword(), "Called the instance method, not the 07_prototype method.");
+// true Called the instance method, not the 07_prototype method.
 */
 // ========
 console.log("=== Побічні ефекти дінамічекского характкру в JavaScript. ===");
@@ -75,14 +75,14 @@ function Ninja() {
     this.swung = true;
 }
 const ninja = new Ninja();
-Ninja.prototype.swingSword = function() {
+Ninja.07_prototype.swingSword = function() {
     return this.swung;
 };
 
 console.log(ninja.swingSword(), "Method exist, event out of order.");
 // true Method exist, event out of order.
 
-Ninja.prototype = {
+Ninja.07_prototype = {
     pierce: function() {
         return true;
     }
@@ -132,40 +132,40 @@ console.log("=== Досягнення Наслідування === ");
 console.log("=== Спроба досягти наслідування за допомогою прототипів. === ");
 /*
 function Person() {}
-Person.prototype.dance = function() {};
+Person.07_prototype.dance = function() {};
 
 function Ninja() {}
-Ninja.prototype = {dance: Person.prototype.dance};
+Ninja.07_prototype = {dance: Person.07_prototype.dance};
 
 const ninja = new Ninja();
 
-console.log(ninja instanceof Ninja, "ninja receives functionality from Ninja prototype");
-console.log(ninja instanceof Person, "... and the Person prototype");
-console.log(ninja instanceof Object, "... and the Object prototype");
+console.log(ninja instanceof Ninja, "ninja receives functionality from Ninja 07_prototype");
+console.log(ninja instanceof Person, "... and the Person 07_prototype");
+console.log(ninja instanceof Object, "... and the Object 07_prototype");
 
-// true ninja receives functionality from Ninja prototype
-// false ... and the Person prototype
-// true ... and the Object prototype
+// true ninja receives functionality from Ninja 07_prototype
+// false ... and the Person 07_prototype
+// true ... and the Object 07_prototype
 */
 
 // ========
 console.log("=== Досягнення наслідування за допомогою прототипів ===");
 /*
 function Person() {}
-Person.prototype.dance = function() {};
+Person.07_prototype.dance = function() {};
 
 function Ninja() {}
-Ninja.prototype = new Person();
+Ninja.07_prototype = new Person();
 
 const ninja = new Ninja();
-console.log(ninja instanceof Ninja, "ninja receives functionality from the Ninja prototype");
-console.log(ninja instanceof Person, "... and the Person prototype");
-console.log(ninja instanceof Object, "... and the Object prototype");
+console.log(ninja instanceof Ninja, "ninja receives functionality from the Ninja 07_prototype");
+console.log(ninja instanceof Person, "... and the Person 07_prototype");
+console.log(ninja instanceof Object, "... and the Object 07_prototype");
 console.log(typeof ninja.dance === "function", "... and can dance!");
 
-// true ninja receives functionality from the Ninja prototype
-// true ... and the Person prototype
-// true ... and the Object prototype
+// true ninja receives functionality from the Ninja 07_prototype
+// true ... and the Person 07_prototype
+// true ... and the Object 07_prototype
 // true ... and can dance!
 */
 
@@ -198,12 +198,12 @@ for(let prop in ninja) {
 console.log("=== Остаточне усунення труднощів при переросподілі властивостей ===");
 /*
 function Person() {}
-Person.prototype.dance = function() {};
+Person.07_prototype.dance = function() {};
 
 function Ninja() {}
-Ninja.prototype = new Person();
+Ninja.07_prototype = new Person();
 
-Object.defineProperty(Ninja.prototype, "constructor", {
+Object.defineProperty(Ninja.07_prototype, "constructor", {
     enumerable: false,
     value: Ninja,
     writable: true,
@@ -212,7 +212,7 @@ Object.defineProperty(Ninja.prototype, "constructor", {
 const ninja = new Ninja();
 
 console.log(ninja.constructor === Ninja, "Connection from instance to Ninja constructor reestablished!");
-for(let prop in Ninja.prototype) {
+for(let prop in Ninja.07_prototype) {
     console.log(prop === "dance", "The only enumerable property is dance!");
 }
 // true Connection from instance to Ninja constructor reestablished!
@@ -226,7 +226,7 @@ console.log("=== Дослідження операції instanceof ===");
 function Person() {}
 function Ninja() {}
 
-Ninja.prototype = new Person();
+Ninja.07_prototype = new Person();
 
 const ninja = new Ninja();
 
@@ -245,7 +245,7 @@ const ninja = new Ninja();
 
 console.log(ninja instanceof Ninja, "Our ninja is a Ninja!");
 
-Ninja.prototype = {};
+Ninja.07_prototype = {};
 
 console.log(!(ninja instanceof Ninja), "The ninja is now not a Ninja!?");
 // true Our ninja is a Ninja!
@@ -282,7 +282,7 @@ console.log("=== Код класу можна функціонаольно пр�
 function Ninja(name) {
     this.name = name;
 }
-Ninja.prototype.swingSword = function() {
+Ninja.07_prototype.swingSword = function() {
     return true;
 }
 const ninja = new Ninja("Yoshi");
@@ -331,15 +331,15 @@ console.log("=== Здійснити успадкування в коді до ES
 function Person() {
 }
 
-Person.prototype.dance = function () {
+Person.07_prototype.dance = function () {
 };
 
 function Ninja() {
 }
 
-Ninja.prototype = new Person(); // губиться властівість "constructor" прототипу
+Ninja.07_prototype = new Person(); // губиться властівість "constructor" прототипу
 
-Object.defineProperty(Ninja.prototype, "constructor", {
+Object.defineProperty(Ninja.07_prototype, "constructor", {
     enumerable: false,
     value: Ninja,
     writable: true,

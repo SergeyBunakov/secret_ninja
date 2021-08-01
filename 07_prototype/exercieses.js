@@ -6,7 +6,7 @@ console.log("=== Вправа 1 ===");
 // видсутня шукаєма властивість?
 console.log("a) class");
 console.log("b) instance");
-console.log("c) prototype");
+console.log("c) 07_prototype");
 console.log("d) pointTo");
 
 console.log("=== Вправа 2 ===");
