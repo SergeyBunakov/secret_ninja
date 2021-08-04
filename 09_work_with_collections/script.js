@@ -297,7 +297,88 @@ console.log(yoshiIndex === 1, "Yoshi is still at index 1");
 */
 
 // ================
-console.log("=== Сортування масивів ===");
+console.log("=== Сортування масивів, метод sort() ===");
+
+// const array = [a, b];
+// array.sort((a, b) => a - b);
+
+/*
+const ninjas = [{name: "Yoshi"}, {name: "Yagyu"}, {name: "Kuma"}];
+
+ninjas.sort(function(ninja1, ninja2) {
+    if(ninja1 < ninja2) {return -1;}
+    if(ninja1 > ninja2) {return 1;}
+
+    return 0;
+});
+console.log(ninjas);
+
+console.log(ninjas[0].name === "Kuma", "Kuma is first");    // false Kuma is first
+console.log(ninjas[1].name === "Yagyu", "Yagyu is second"); // true Yagyu is second
+console.log(ninjas[2].name === "Yoshi", "Yoshi is third");  // false Yoshi is third
+*/
+
+/*
+const arr = [23, 12, 7, 48, 14];
+console.log(arr);
+arr.sort(function (a, b) {
+    if (a < b) {
+        return -1;
+    }
+    if (a > b) {
+        return 1;
+    }
+    return 0;
+});
+console.log(arr);
+// [ 23, 12, 7, 48, 14 ]
+// [ 7, 12, 14, 23, 48 ]
+*/
 
 
 // ================
+console.log("=== Агрегування елементів масиву ===");
+/*
+const numbers = [1, 2, 3, 4, 5, 6, 7];
+let sum = 0;
+numbers.forEach(number => {
+    sum += number;
+});
+console.log(sum); // 28
+console.log(sum === 28, "The sum of first four numbers is 28") ;
+*/
+
+// ================
+console.log("=== Агрегування елементів масиву за допомогою метода reduce() ===");
+
+/*
+const numbers = [1, 2, 3, 4, 5, 6, 7];
+const sum = numbers.reduce((aggregated, number) =>
+aggregated + number, 0);
+console.log(sum);  // 28
+console.log(sum === 28, "The sum of first four numbers is 28" );
+*/
+
+// ================
+console.log("=== Повторне використання вбудованих методів обробки масивів ===");
+
+console.log("=== Імітація методів обробки масивів ===");
+// Дивись simulating_array.js
+
+// ================
+console.log("=== Відображення ===");
+console.log("=== Створення першого відображення ===");
+
+const ninjaIsLandMap = new Map();
+const ninja1 = {name: "Yoshi"};
+const ninja2 = {name: "Hattori"};
+const ninja3 = {name: "Kuma"};
+
+ninjaIsLandMap.set(ninja1, {homeIsLand: "Honshu"});
+ninjaIsLandMap.set(ninja2, {homeIsLand: "Hokkaido"});
+
+console.log(ninjaIsLandMap.get(ninja1).homeIsLand === "Honshu", "The first mapping works");
+console.log(ninjaIsLandMap.get(ninja2).homeIsLand === "Hokkaido", "The second mapping works");
+
+
+
