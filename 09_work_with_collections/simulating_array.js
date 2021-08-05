@@ -30,3 +30,27 @@ console.log(find && find.id === "second",
 // 1 "Verify that we have an element in our stash"
 // 1 "Verify the other insertion"
 // false "We`ve found our element"
+
+console.log("=== Відображення значень на вузли HTML-документа за допомогою об'єктів ===");
+
+/*
+const firstElement = document.getElementById("firstElement");
+const secondElement = document.getElementById("second");
+
+const map = {};
+
+map[firstElement] = {data: "firstElement"};
+console.log(map[firstElement].data === "firstElement",
+    "The first element is correctly mapped");
+
+map[secondElement] = {data: "secondElement"};
+console.log(map[secondElement].data === "secondElement",
+    "The second element is correctly mapped");
+
+console.log(map[firstElement].data === "firstElement",
+    "But now the first element is overriden ???");
+// true "The first element is correctly mapped"
+// simulating_array.js:46 true "The second element is correctly mapped"
+// simulating_array.js:49 true "But now the first element is overriden ???"
+*/
+

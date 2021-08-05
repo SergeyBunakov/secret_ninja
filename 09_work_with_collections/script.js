@@ -380,5 +380,185 @@ ninjaIsLandMap.set(ninja2, {homeIsLand: "Hokkaido"});
 console.log(ninjaIsLandMap.get(ninja1).homeIsLand === "Honshu", "The first mapping works");
 console.log(ninjaIsLandMap.get(ninja2).homeIsLand === "Hokkaido", "The second mapping works");
 
+console.log(ninjaIsLandMap.get(ninja3) === undefined,
+    "There is no mapping for third ninja!");
+
+console.log(ninjaIsLandMap.size === 2,
+    "We`ve created two mappings");
+
+console.log(ninjaIsLandMap.has(ninja1) && ninjaIsLandMap.has(ninja2),
+    "We have mapping for the first two ninjas");
+console.log(ninjaIsLandMap.has(ninja3), "But not for the third ninja!");
+
+ninjaIsLandMap.delete(ninja1);
+console.log(ninjaIsLandMap.has(ninja1) && ninjaIsLandMap.size === 1,
+    "There`s no first ninja mapping anymore!");
+
+ninjaIsLandMap.clear();
+console.log(ninjaIsLandMap.size === 0, "All mapping have been cleared");
+
+console.log(ninjaIsLandMap); // Map(0) {}
+console.log(ninja1);         // script.js:401 {name: "Yoshi"}
+console.log(ninja2);         // script.js:402 {name: "Hattori"}
+console.log(ninja3);         // script.js:403 {name: "Kuma"}
+
+// ================
+console.log("=== Рівність ключів в відображеннях ===");
+
+const map = new Map();
+const currentLocation = location.href;
+
+const firstLink = new URL(currentLocation);
+const secondLink = new URL(currentLocation);
+
+map.set(firstLink, {description: "firstLink"});
+map.set(secondLink, {description: "secondLink"});
+
+console.log(map.get(firstLink).description === "firstLink",
+    "First link mapping");
+console.log(map.get(secondLink).description === "secondLink",
+    "Second link mapping");
+console.log(map.size === 2, "There are two mapping");
+// true "First link mapping"
+// script.js:419 true "Second link mapping"
+// script.js:421 true "There are two mapping"
+
+// ================
+console.log("=== Перебір елементів відображення ===");
+
+const directory = new Map();
+
+directory.set("Yoshi", "+81 23 2323");
+directory.set("Kuma", "+81 32 3232 3232");
+directory.set("Hiro", "+81 33 3222 2223");
+
+console.log("---- item ----");
+for (let item of directory) {
+    console.log(item[0] !== null, "Key: " + item[0]);
+    console.log(item[1] !== null, "Value: " + item[1]);
+}
+
+console.log("---- keys() ----");
+for (let key of directory.keys()) {
+    console.log(key !== null, "Key: " + key);
+    console.log(directory.get(key) !== null,
+        "Value: " + directory.get(key));
+}
+
+console.log("---- values() ----");
+for (let value of directory.values()) {
+    console.log(value !== null, "Value: " + value);
+}
+console.log("---------");
+
+// ================
+console.log("=== Безліччі ===");
+console.log("=== Імітація безлічі за допомогою об'єктів ===");
+
+/*
+function Set() {
+    this.data = {};
+    this.length = 0;
+}
+
+Set.prototype.has = function (item) {
+    return typeof this.data[item] !== "undefined";
+};
+
+Set.prototype.add = function (item) {
+    if (!this.has(item)) {
+        this.data[item] = true;
+        this.length++;
+    }
+};
+
+Set.prototype.remove = function (item) {
+    if (this.has(item)) {
+        delete this.data[item];
+        this.length--;
+    }
+};
+
+const ninjas = new Set();
+ninjas.add("Hattori");
+ninjas.add("Hattori");
+
+console.log(ninjas.has("Hattori") && ninjas.length === 1,
+    "Our set contains only one Hattori");
+
+ninjas.remove("Hattori");
+console.log(!ninjas.has("Hattori") && ninjas.length === 0,
+    "Our set is now empty");
+*/
 
 
+// ================
+console.log("=== Створення першої безліччі ===");
+console.log("=== Створення безліччі ===");
+
+/*
+const ninjas = new Set(["Kuma", "Hattori", "Yogyu", "Hattori"]);
+
+console.log(ninjas.has("Hattori"), "Hattori is in our set");
+console.log(ninjas.size === 3, "There are only three ninjas in our set!");
+
+console.log(ninjas.has("Yoshi"), "Yoshi is not in, yet...");
+ninjas.add("Yoshi");
+console.log(ninjas.has("Yoshi"), "Yoshi is added");
+console.log(ninjas.size === 4, "There are four ninjas in our set!");
+
+console.log(ninjas.has("Kuma"), "Kuma is already added");
+ninjas.add("Kuma");
+console.log(ninjas.size === 4, "Adding Kuma again has no effect");
+
+for(let ninja of ninjas) {
+    console.log(ninja !== null, ninja);
+}*/
+
+// ================
+console.log("=== Об'єднання множин ===");
+console.log("=== Об'єднання множин з метою злиття елементів колекцій даних ===");
+
+/*
+const ninjas = ["Kuma", "Hattori", "Yagyu"];
+const samurai = ["Hattori", "Oda", "Tomoe"];
+
+const warriors = new Set([...ninjas, ...samurai]);
+
+console.log(warriors.has("Kuma"), "Kuma is here");
+console.log(warriors.has("Hattori"), "And Hattori");
+console.log(warriors.has("Yagyu"), "And Yagyu");
+console.log(warriors.has("Oda"), "And Oda");
+console.log(warriors.has("Tomoe"), "Tamoe, last but not least");
+
+console.log(warriors.size === 5, "There are 5 warriors in total");
+*/
+
+// ================
+console.log("=== Перетин множин ===");
+
+/*
+const ninjas = new Set(["Kuma", "Hattori", "Yagyu"]);
+const samurai = new Set(["Hattori", "Oda", "Tomoe"]);
+
+const ninjaSamurais = new Set(
+    [...ninjas].filter(ninja => samurai.has(ninja))
+);
+
+console.log(ninjaSamurais.size === 1, "There`s only one ninja samurai");
+console.log(ninjaSamurais.has("Hattori"), "Hattori is his name");
+*/
+
+// ================
+console.log("=== Різниця множин ===");
+
+const ninjas = new Set(["Kuma", "Hattori", "Yagyu"]);
+const samurai = new Set(["Hattori", "Oda", "Tomoe"]);
+
+const pureNinjas = new Set(
+    [...ninjas].filter(ninja => !samurai.has(ninja))
+);
+
+console.log(pureNinjas.size === 2, "There's only one ninja samurai");
+console.log(pureNinjas.has("Kuma"), "Kuma is a true ninja");
+console.log(pureNinjas.has ("Yagyu") , "Yagyu is a true ninja") ;
