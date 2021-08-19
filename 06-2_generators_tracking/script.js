@@ -1,4 +1,5 @@
 console.log("=== Generator Tracking. ===");
+
 function* ninjaGenerator(action) {
     yield "Hattori " + action;
     yield "Toyota " + action;
